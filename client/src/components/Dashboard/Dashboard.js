@@ -28,21 +28,25 @@ const Dashboard = props => {
     bio,
     avatar,
     location,
-    website
+    website,
+    userProjectsNum,
+    userFollowersNum,
+    userFollowingNum,
+    starredProjectsNum
   } = tempData;
   return (
-    <div className="Dashboard">
-      <div className="miniProfile">
-        <img src={avatar} alt="userPhoto" />
+    <main className="Dashboard">
+      <section className="miniProfile">
+        <img className="avatar" src={avatar} alt="userPhoto" />
 
-        <div className="profileDetails">
+        <p className="profileDetails">
           <h3>
             {firstName}&nbsp;{lastName}
           </h3>
           <h4>{username}</h4>
           <h5>{bio}</h5>
 
-          <div className="bottomRow">
+          <footer className="bottomRow">
             <div className="dataPoint">
               <img src={locationIcon} alt="locationIcon" />
               {location}
@@ -50,16 +54,29 @@ const Dashboard = props => {
 
             <div className="dataPoint">
               <img src={linkIcon} alt="linkIcon" />
-              <a href={website} target="_blank">
-                {website}
-              </a>
+              <a href={website}>{website}</a>
             </div>
-          </div>
-        </div>
-      </div>
+          </footer>
+        </p>
+      </section>
 
-      <div className="miniStats"></div>
-    </div>
+      <section className="miniStats">
+        <p className="A">Projects</p>
+        <p className="B">Followers</p>
+        <p className="C">Following</p>
+        <p className="D">Starred</p>
+
+        <p className="A">{userProjectsNum}</p>
+        <p className="B">{userFollowersNum}</p>
+        <p className="C">{userFollowingNum}</p>
+        <p className="D">{starredProjectsNum}</p>
+
+        <p className="A">Teams</p>
+        <p className="A">XYZ</p>
+
+        <button className="follow-btn">Follow</button>
+      </section>
+    </main>
   );
 };
 
